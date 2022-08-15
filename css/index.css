@@ -124,6 +124,10 @@ footer {
 }
 
 h3 {
+    padding: 0px;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
     color: rgba(0, 0, 0, 0);
     position: relative;
     font-size: 4rem;
