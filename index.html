@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>ElemPets</title>
+        <meta name="description" content="Pagina de juego pelea entre mascotas">
+        <meta name="keywords" content="Game, Tiers, Fighting, Elements, Fire, Water, Earth">
+        <meta name="author" content="Ivan Maidana">
+        <meta name="copyright" content="Ivan Maidana 2022">
+        <meta http-equiv="expires" content="43200"/> <!-- quitar luego de terminar el juego-->
+    
+        <link rel = "shorcut icon" href = "https://i.imgur.com/oUthgqP.png" type = "image/x-png"/> 
+        <link rel = "icon" href = "https://i.imgur.com/oUthgqP.png" type = "image/x-png"/>
+        <script src = "js/index.js"></script>
+        <link rel = "stylesheet" href = "css/index.css">
+    </head>
+    <body>
+        <header>
+            <nav class = "nav">
+                <h1>Proyecto 3 (juego)</h1>
+            </nav>
+            <main class = "main">
+                <h3 data-text = "Elempets">Elempets</h3> 
+                <h1 style = "font-size: 4rem;">🔥💧☘</h1>
+            </main>
+        </header>
+        <section>
+            <section id = "section-main" class = "parrafo">
+                <p>
+                Este es un proyecto de videojuego que en la fecha aún no funciona. <br>Se trata de un juego en donde hay que elegir una mascota entre 6 (seis) mascotas. <br>Cada mascota tiene un elemento definido.<br> El usuario podrá elegir libremente o con la opción de "Aletorio" podrá dejar que el azar eliga.
+                <h2>Elige a tú mascota que quieres que luche:</h2></p>
+                
+            </section>
+            <section class = "text-init">
+                <form name = "seleccionar-mascota">
+                    <div class = "tarjetas">
+                        <label for = "mascota-1">
+                            <p>Mascota 1</p> 
+                            <img src="https://i.imgur.com/GDYqWIE.png" alt="Mascota 1">
+                        </label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-1" />
+                    
+                        <label for = "mascota-2">
+                            <p>Mascota 2</p> 
+                            <img src="https://i.imgur.com/lzIglf5.png" alt="Mascota 2">
+                        </label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-2" />
+                    
+                        <label for = "mascota-3">
+                            <p>Mascota 3</p> 
+                            <img src="https://i.imgur.com/2gRbLL3.png" alt="Mascota 3">
+                        </label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-3" />
+                    
+                        <label for = "mascota-4">Mascota 4</label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-4" />
+                    
+                        <label for = "mascota-5">Mascota 5</label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-5" />
+                    
+                        <label for = "mascota-6">Mascota 6</label>
+                        <input type = "radio" style ="display: none" name = "mascota" id = "mascota-6" />
+                    </div>
+                </form>
+                <section id = "section-botones-seleccion-jugador"  class = "section-botones">
+                    <span id = "botones-requisito-seleccion">
+                        <button type="button" id = "seleccionar-mascota-jugador" disabled>Select</button>
+                        <button type="button" id = "seleccionar-mascota-jugador-aleatorio">Random</button>
+                    </span>
+                </section> 
+            </section>
+        </section>
+        <section id = "section-ataque" style = "display: none;">
+            <br>
+            <p>
+                <span id = "trampa" class = "trampa"><br><br><br><br></span>
+            </p>
+            <p><br>
+                Tú mascota (<b><span id = "nombre-mascota-jugador">Jugador debe seleccionar su mascota</span></b>) tiene <b><span id = "span-vida-jugador">0</span></b> de vida.
+            </p>
+            <p>La mascota del contrincante PC (<b><span id = "nombre-mascota-pc" >Esperando que el jugador seleccione primero...</span></b>) tiene <b><span id = "span-vida-pc">0</span></b> de vida.
+            </p>
+            <section id = "seleccionar-ataque">
+                <h2>Elige atacar con tú mascota:</h2>
+                <p>
+                    <p>
+                        <span id = "botones-para-atacar"><br><br><br></span>
+                    </p>
+                </p>
+            </section>
+            <section>
+                <p>Tú mascota atacó con <b><span id = "span-elementos-jugador">Elemento de mascota seleccionada por el Jugador</span></b>. <br>La mascota contraria atacó con <b><span id = "span-elementos-enemigo">Elemento de mascota seleccionada por la PC</span></b>.</p>
+                <h2><br><br>
+                    Resultado del combate:
+                </h2>
+            </section>
+            <section id = "mensajes">
+                <span> Historial de ataques...</span></p>
+            </section>
+        </section>
+        <section id = "reiniciará"  style = "visibility: hidden;">
+            <h2><br><br>
+                ¿Perdiste o ganaste el combate?
+            </h2>
+            <p><br>
+                <button type="button" id = "boton-reiniciar">Reiniciar</button>
+            </p>
+        </section>
+        <footer>
+            <section> 
+                <button type="button" class = "tramp" id = "trampa-2" onclick = trampa()>...</button>
+            </section>
+            <section>
+                <br><br>
+                <p class = "time">
+                    <b><span id = "fecha-de-hoy"></span></b>
+                </p>
+            </section>
+        </footer>
+    </body>
+</html>
