@@ -105,7 +105,7 @@ button {
     border: 1px solid rgba(8,8,8,0.29);
 }
 .text-init {
-    height: 100vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
