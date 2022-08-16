@@ -144,6 +144,7 @@ footer {
 .tramp {
     background-color: rgba(0, 0, 0, 0);
     color: black;
+    border: 0px;
 }
 .trampa {
     box-sizing: border-box;
