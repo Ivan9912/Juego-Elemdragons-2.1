@@ -462,8 +462,8 @@ class Mascotas{
 };
 
 mascotasEleccion.push(new Mascotas(`Dragón N°1`,`Agua`, 1010, 60,16,05,06,098));
-mascotasEleccion.push(new Mascotas(`Dragón N°2`,`Tierra`, 1020, 60,15,05,06,097));
-mascotasEleccion.push(new Mascotas(`Dragón N°3`,`Fuego`, 1030, 60,14,05,06,096));
+mascotasEleccion.push(new Mascotas(`Dragón N°2`,`Fuego`, 1020, 60,15,05,06,097));
+mascotasEleccion.push(new Mascotas(`Dragón N°3`,`Tierra`, 1030, 60,14,05,06,096));
 mascotasEleccion.push(new Mascotas(`Dragón N°4`,`Agua y Fuego`, 1040, 60,13,05,06,095));
 mascotasEleccion.push(new Mascotas(`Dragón N°5`,`Agua y Tierra`, 1050, 60,12,05,06,094));
 mascotasEleccion.push(new Mascotas(`Dragón N°6`,`Tierra y Fuego`, 1060, 60,11,05,06,093));
