@@ -400,6 +400,7 @@ function desactivarBotones () {
     botonAgua.disabled = true;
     let sectionReiniciar = document.querySelector (`#reiniciará`);
     sectionReiniciar.style.visibility = `visible`;
+    sectionReiniciar.style.display = `flex`;
 };
 
 function relogActualizable () {
