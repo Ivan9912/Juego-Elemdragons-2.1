@@ -1,4 +1,4 @@
-export {mascotasEleccion};
+//export {mascotasEleccion};
 
 const mascotasEleccion = [];
 
