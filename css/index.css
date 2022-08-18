@@ -6,6 +6,7 @@ body {
     background: linear-gradient(130deg,rgba(255,0,0,0.26) 25%, rgba(0,65,255,0.26) 50%, rgba(146,141,13,0.26) 75%);
     background: -webkit-linear-gradient(130deg,rgba(255,0,0,0.26) 25%, rgba(0,65,255,0.26) 50%, rgba(146,141,13,0.26) 75%);
     background: -moz-linear-gradient(130deg,rgba(255,0,0,0.26) 25%, rgba(0,65,255,0.26) 50%, rgba(146,141,13,0.26) 75%);
+    
 }
 
 .nav {
@@ -118,10 +119,11 @@ h2 {
     display: flex;
     box-sizing: content-box;
     flex-direction: row;
-    align-items: flex-end;
+    
+    /*align-items: flex-end;*/
     justify-content: center;
     width: 250px;
-    height: 100px;
+    /*height: 100px;*/
     margin-top: 25px;
     margin-bottom: 25px;
     gap: 15px;
@@ -130,8 +132,7 @@ h2 {
 
 .tarjetas img {
     width: 130px;
-    align-items: flex-start;
-    justify-content: center;
+    
 }
 
 input:checked+label {
@@ -391,6 +392,50 @@ footer {
 
 @media (max-width: 450px) {
     h1 {
+        font-size: .9em;
+    }
+    h2 {
         font-size: 1em;
+    }
+    h3 {
+        font-size: 2em;
+        width: 340px;
+    }
+    h3::before {
+        font-size: 3 rem;
+    }
+    .main img {
+        width: 50px;
+        height: 50px;
+    }
+    .tarjetas {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .tarjetas img {
+        width: 70px;
+        margin-top: 10px;
+
+    }
+    .parrafo {
+        font-size: .3em;
+    }
+    #botones-requisito-seleccion {
+        display: flex;
+        flex-direction: column;
+        height: 0px;
+    }
+    button {
+        font-size: .7rem;
+        width: 70px;
+        height: 29px;
+        margin: 5px;
+    }
+    .time {
+        font-size: .7em;
+    }
+    footer {
+        margin-top: 90px;
     }
 }
