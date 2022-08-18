@@ -8,10 +8,6 @@ body {
     background: -moz-linear-gradient(130deg,rgba(255,0,0,0.26) 25%, rgba(0,65,255,0.26) 50%, rgba(146,141,13,0.26) 75%);
 }
 
-h1 {
-    font-size: 3rem;
-}
-
 .nav {
     color: rgb(232, 243, 232);
     background-color: RGBA(0,0,0,0.75);
@@ -30,9 +26,24 @@ h1 {
     border: 1px solid rgba(8,8,8,0.29);
 }
 
-h2 {
+h1 {
+    font-size: 3rem;
+}
+
+.main {
     display: flex;
-    justify-content: center;
+    box-sizing: border-box;
+    margin: 1px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+main img {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
 }
 
 h3 {
@@ -82,35 +93,25 @@ h3::before {
     }
 }
 
-.main {
+.parrafo {
     display: flex;
-    box-sizing: border-box;
-    margin: 1px;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 20px;
+    font-family: 'Permanent Marker', cursive;
 }
 
-main img {
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-}
-
-label {
+h2 {
     display: flex;
-    gap: 10px;
-    
+    justify-content: center;
 }
 
-input:checked+label {
-    box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
-    -moz-box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
-    background-color: RGBA(0,0,0,0.16);
-    border: 1px solid RGBA(0,0,0,0.46);
-    border-radius: 20px;
+.text-init {
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjetas {
@@ -131,6 +132,27 @@ input:checked+label {
     width: 130px;
     align-items: flex-start;
     justify-content: center;
+}
+
+input:checked+label {
+    box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
+    -moz-box-shadow: 25px 25px 27px 6px rgba(0,0,0,0.55);
+    background-color: RGBA(0,0,0,0.16);
+    border: 1px solid RGBA(0,0,0,0.46);
+    border-radius: 20px;
+}
+
+label {
+    display: flex;
+    gap: 10px;
+    
+}
+
+label:hover {
+    cursor: pointer;
+    border: 1px solid RGBA(0,0,0,0.46);
+    border-radius: 20px;
 }
 
 button {
@@ -161,31 +183,8 @@ button {
     text-align: center;
 }
 
-.marco-seleccion {
-    background-color: RGBA(0,0,0,0.10);
-    width: 620px;
-    border-radius: 50px;
-}
-
-/*---------------------------------------*/
-.section-botones-aleatorio {
-    background-color: transparent;
-    color: #000000;
-}
-
-.section-botones-aleatorio:hover {
-    cursor: pointer;
-    background-color: black;
-    color: bisque;
-}
-
 .section-botones-select {
     background: transparent; 
-    color: RGBA(0,0,0,0.46);
-}
-
-.section-botones-aleatorio2 {
-    background-color: transparent; 
     color: RGBA(0,0,0,0.46);
 }
 
@@ -200,10 +199,44 @@ button {
     color: bisque;
 }
 
-label:hover {
+.section-botones-aleatorio {
+    background-color: transparent;
+    color: #000000;
+}
+
+.section-botones-aleatorio:hover {
     cursor: pointer;
-    border: 1px solid RGBA(0,0,0,0.46);
-    border-radius: 20px;
+    background-color: black;
+    color: bisque;
+}
+
+.section-botones-aleatorio2 {
+    background-color: transparent; 
+    color: RGBA(0,0,0,0.46);
+}
+
+.conteiner-section-atack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trampa {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    padding: 10px;
+}
+
+.marco-seleccion {
+    background-color: RGBA(0,0,0,0.10);
+    width: 620px;
+    border-radius: 50px;
+}
+
+.subtitulo {
+    margin-bottom: 15px;
 }
 
 .botones-ataque {
@@ -233,54 +266,6 @@ label:hover {
     color: RGBA(0,0,0,0.46);
 }
 
-.subtitulo {
-    margin-bottom: 15px;
-}
-
-.conteiner-grid {
-    display: grid;
-    flex-direction: column;
-    justify-items: center;
-}
-
-#reiniciará {
-    flex-direction: column;
-    align-items: center;
-}
-
-#boton-reiniciar {
-    background-color: transparent;
-    color: #000000;
-}
-#boton-reiniciar:hover {
-    cursor: pointer;
-    background-color: black;
-    color: bisque;
-}
-/*------------------------------------*/
-
-.text-init {
-    height: 35vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.parrafo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'Permanent Marker', cursive;
-}
-
-.conteiner-section-atack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .indicadores {
     display: grid;
     grid-template-columns: 390px ;
@@ -307,6 +292,41 @@ label:hover {
     
 }
 
+.mensaje-final {
+    font-family: 'Permanent Marker', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background-color: #000000;
+    margin-top: 30px;
+    color: bisque;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 410px;
+}
+
+.resultado-combate {
+    font-size: 1.4rem;
+}
+
+#reiniciará {
+    flex-direction: column;
+    align-items: center;
+}
+
+#boton-reiniciar {
+    background-color: transparent;
+    color: #000000;
+}
+
+#boton-reiniciar:hover {
+    cursor: pointer;
+    background-color: black;
+    color: bisque;
+}
+
 .conteiner-ataques {
     display: flex;
     flex-direction: column;
@@ -325,23 +345,15 @@ label:hover {
     width: 800px;
 }
 
-.resultado-combate {
-    font-size: 1.4rem;
+.conteiner-grid {
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
 }
 
-.mensaje-final {
-    font-family: 'Permanent Marker', cursive;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    background-color: #000000;
-    margin-top: 30px;
-    color: bisque;
-    padding: 10px;
-    box-sizing: border-box;
-    width: 410px;
+.marketing {
+    margin-top: 50px;
+    font-size: 1.5rem;
 }
 
 footer {
@@ -355,22 +367,12 @@ footer {
     margin-top: 250px;
 }
 
-.time {
-    font-size: 1rem;
-}
-
 .tramp {
     background-color: rgba(0, 0, 0, 0);
     color: bisque;
     border: 0px;
 }
-.trampa {
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    padding: 10px;
-}
+
 .boton-trampa {
     width: 300px;
     background-color: transparent; 
@@ -379,11 +381,13 @@ footer {
     font-size: 1.5rem;
 }
 
-.marketing {
-    margin-top: 50px;
-    font-size: 1.5rem;
+.time {
+    font-size: 1rem;
 }
 
+/*---------------------------------------*/
+
+/*------------------------------------*/
 
 @media (max-width: 450px) {
     h1 {
