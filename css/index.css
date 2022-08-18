@@ -8,6 +8,10 @@ body {
     background: -moz-linear-gradient(130deg,rgba(255,0,0,0.26) 25%, rgba(0,65,255,0.26) 50%, rgba(146,141,13,0.26) 75%);
 }
 
+h1 {
+    font-size: 3rem;
+}
+
 .nav {
     color: rgb(232, 243, 232);
     background-color: RGBA(0,0,0,0.75);
@@ -34,6 +38,7 @@ h2 {
 h3 {
     padding: 10px;
     margin: 5px;
+    width: 530px;
     box-sizing: border-box;
     border: 5px solid #00000021;
     border-radius: 20px;
@@ -52,7 +57,7 @@ h3::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0%;
+    width: 99%;
     height: 100%;
     color: rgb(255, 255, 255);
     border-right: 2px hidden #000000;
@@ -377,4 +382,11 @@ footer {
 .marketing {
     margin-top: 50px;
     font-size: 1.5rem;
+}
+
+
+@media (max-width: 450px) {
+    h1 {
+        font-size: 1em;
+    }
 }
