@@ -195,7 +195,7 @@ function validarBotonesAtaque (codigoMascota) {
         escuchaBotonTierra = botonTierra;
     }
     let sectionAtaque = document.querySelector (`#section-ataque`);
-    sectionAtaque.style.display=`block`;
+    sectionAtaque.style.display=`flex`;
     let sectionMain = document.querySelector(`#section-main`);
     sectionMain.style.display=`none`;
 };

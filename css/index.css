@@ -26,6 +26,11 @@ body {
     border: 1px solid rgba(8,8,8,0.29);
 }
 
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
 h3 {
     padding: 10px;
     margin: 5px;
@@ -150,6 +155,13 @@ button {
     align-items: center;
     text-align: center;
 }
+
+.marco-seleccion {
+    background-color: RGBA(0,0,0,0.10);
+    width: 620px;
+    border-radius: 50px;
+}
+
 /*---------------------------------------*/
 .section-botones-aleatorio {
     background-color: transparent;
@@ -248,13 +260,15 @@ label:hover {
 
 .conteiner-section-atack {
     display: flex;
-    flex-direction: row;
-    text-align: center;
+    flex-direction: column;
     align-items: center;
 }
 
 .indicadores {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: 390px ;
+    grid-template-rows: 130px;
+    justify-content: center;
     margin-left: 20px;
     color: antiquewhite;
     /*font-family: 'Permanent Marker', cursive;*/
@@ -262,10 +276,10 @@ label:hover {
     padding: 15px;
     font-size: 1rem;
     background-color: #000000;
-    flex-direction: row;
+    margin-top: 20px;
     align-items: center;
     text-align: center;
-    width: 400px;
+    width: 420px;
     border-radius: 50px;
     border: 1px solid black
 }
@@ -278,6 +292,7 @@ label:hover {
 
 .conteiner-ataques {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 .conteiner-ataques2 {
@@ -296,7 +311,7 @@ label:hover {
 .mensaje-final {
     font-family: 'Permanent Marker', cursive;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     border-radius: 50px;
     background-color: #000000;
@@ -315,10 +330,10 @@ footer {
     align-items: center;
     background-color: RGBA(0,0,0,0.75);
     color: bisque;
+    margin-top: 250px;
 }
 
 .time {
-    
     font-size: 1rem;
 }
 
@@ -346,3 +361,7 @@ footer {
     margin-top: 50px;
     font-size: 1.5rem;
 }
+
+
+/*-----------------------------------------*/
+
