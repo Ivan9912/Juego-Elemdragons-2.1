@@ -183,6 +183,7 @@ button {
     background-color: transparent; 
     color: RGBA(0,0,0,0.46);
 }
+
 .section-botones-select2 {
     background-color: transparent;
     color: #000000;
@@ -295,6 +296,7 @@ label:hover {
     flex-direction: column;
     justify-content: center;
 }
+
 .conteiner-ataques2 {
     display: grid;
     grid-template-columns: 250px 210px 190px;
@@ -307,11 +309,15 @@ label:hover {
     width: 800px;
 }
 
+.resultado-combate {
+    font-size: 1.4rem;
+}
 
 .mensaje-final {
     font-family: 'Permanent Marker', cursive;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border-radius: 50px;
     background-color: #000000;
@@ -319,7 +325,7 @@ label:hover {
     color: bisque;
     padding: 10px;
     box-sizing: border-box;
-    width: 400px;
+    width: 410px;
 }
 
 footer {
@@ -361,7 +367,3 @@ footer {
     margin-top: 50px;
     font-size: 1.5rem;
 }
-
-
-/*-----------------------------------------*/
-
