@@ -392,7 +392,10 @@ footer {
 
 @media (max-width: 500px) {
     h1 {
-        font-size: .9em;
+        font-size: .4em;
+    }
+    nav {
+        height: 30px;
     }
     h2 {
         font-size: 1em;
@@ -436,6 +439,6 @@ footer {
         font-size: .7em;
     }
     footer {
-        margin-top: 90px;
+        margin-top: 130px;
     }
 }
