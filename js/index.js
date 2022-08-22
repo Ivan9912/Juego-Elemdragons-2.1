@@ -89,7 +89,7 @@ function seleccionarMascotaJugador () {
 function seleccionarMascotaJugadorAleatorio () {
     let aleatorioMascotaJugador = random (min, max);
     let spanMenuMascotas = document.querySelector (`#botones-requisito-seleccion`);
-    spanMenuMascotas.innerHTML = `<p>Seleccionaste el botón <b>"aleatorio"</b> por ende, no podrás volver a seleccionar sin <b>reiniciar</b> el juego.</p>`;
+    spanMenuMascotas.innerHTML = `<p class = "conteiner-aleatorio-mensaje">Seleccionaste el botón <b>"aleatorio"</b> por ende, no podrás volver a seleccionar sin <b>reiniciar</b> el juego.</p>`;
     let spanVidaJugador = document.getElementById (`span-vida-jugador`);
         
     if (aleatorioMascotaJugador == 1) {

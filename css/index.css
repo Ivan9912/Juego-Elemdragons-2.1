@@ -102,13 +102,19 @@ h3::before {
     font-family: 'Permanent Marker', cursive;
 }
 
+.conteiner-aleatorio-mensaje {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 h2 {
     display: flex;
     justify-content: center;
 }
 
 .text-init {
-    height: 35vh;
+    height: 477px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -471,6 +477,6 @@ footer {
         gap: 20px;
     }
     .marco-seleccion {
-        width: 360px;
+        width: 310px;
     }
 }
