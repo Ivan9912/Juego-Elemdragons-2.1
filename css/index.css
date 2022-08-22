@@ -338,6 +338,7 @@ button {
     display: grid;
     grid-template-columns: 250px 210px 190px;
     justify-content: center;
+    align-items: flex-start;
     gap: 40px;
     border-radius: 50px;
     background-color: #000000;
@@ -394,7 +395,7 @@ footer {
     h1 {
         font-size: .4em;
     }
-    nav {
+    .nav {
         height: 30px;
     }
     h2 {
@@ -430,7 +431,7 @@ footer {
         height: 0px;
     }
     button {
-        font-size: .7rem;
+        font-size: .6rem;
         width: 70px;
         height: 29px;
         margin: 5px;
@@ -440,5 +441,36 @@ footer {
     }
     footer {
         margin-top: 130px;
+    }
+    .indicadores {
+        font-size: .7em;
+        margin-top: 10px;
+        width: 290px;
+        margin-left: 10px;
+        grid-template-columns: 241px;
+        grid-template-rows: 99px;
+    }
+    .parrafo {
+        font-size: .4em;
+    }
+    .mensaje-final {
+        font-size: .8em;
+        width: 290px;
+    }
+    .resultado-combate {
+        font-size: 1rem;
+    }
+    .conteiner-ataques2 {
+        grid-template-columns: 48px 34px 22px;
+      
+        align-items: flex-start;
+        padding: 10px;
+        font-size: .1em;
+        height: 800px;
+        width: 170px;
+        gap: 20px;
+    }
+    .marco-seleccion {
+        width: 360px;
     }
 }
