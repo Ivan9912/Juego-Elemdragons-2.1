@@ -94,7 +94,7 @@ h3::before {
     }
 }
 
-.parrafo {
+.paragraph {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,7 +102,7 @@ h3::before {
     font-family: 'Permanent Marker', cursive;
 }
 
-.conteiner-aleatorio-mensaje {
+.conteiner-random-mensaje {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -181,7 +181,7 @@ button {
     border: 1px solid rgba(8,8,8,0.29);
 }
 
-.section-botones {
+.section-btn {
     margin-top: 10px;
     box-sizing: border-box;
     display: flex;
@@ -190,34 +190,34 @@ button {
     text-align: center;
 }
 
-.section-botones-select {
+.section-btn-select {
     background: transparent; 
     color: RGBA(0,0,0,0.46);
 }
 
-.section-botones-select2 {
+.section-btn-select2 {
     background-color: transparent;
     color: #000000;
 }
 
-.section-botones-select2:hover {
+.section-btn-select2:hover {
     cursor: pointer;
     background-color: black;
     color: bisque;
 }
 
-.section-botones-aleatorio {
+.section-btn-random {
     background-color: transparent;
     color: #000000;
 }
 
-.section-botones-aleatorio:hover {
+.section-btn-random:hover {
     cursor: pointer;
     background-color: black;
     color: bisque;
 }
 
-.section-botones-aleatorio2 {
+.section-btn-random2 {
     background-color: transparent; 
     color: RGBA(0,0,0,0.46);
 }
@@ -246,7 +246,7 @@ button {
     margin-bottom: 15px;
 }
 
-.botones-ataque {
+.btn-ataque {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
@@ -428,10 +428,7 @@ footer {
         margin-top: 10px;
 
     }
-    .parrafo {
-        font-size: .3em;
-    }
-    #botones-requisito-seleccion {
+    #btn-requisito-seleccion {
         display: flex;
         flex-direction: column;
         height: 0px;
@@ -456,7 +453,7 @@ footer {
         grid-template-columns: 241px;
         grid-template-rows: 99px;
     }
-    .parrafo {
+    .paragraph {
         font-size: .4em;
     }
     .mensaje-final {
