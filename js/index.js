@@ -158,12 +158,12 @@ function registroDeEleccionesPc (MascotaPc) {
     ataqueElegidoPorPcMascota = registroDeAtaque[MascotaPc-1];
     defElegidoPorPc = registroDeDefensa[MascotaPc-1];
 
-    debDeFuegoMascotaElegidaPc = registroDeDebFuego[MascotaPc-1];
-    debDeAguaMascotaElegidaPc = registroDeDebAgua[MascotaPc-1];
-    debDeTierraMascotaElegidaPc = registroDeDebTierra[MascotaPc-1];
+    debDeFuegoMascotaElegidaPC = registroDeDebFuego[MascotaPc-1];
+    debDeAguaMascotaElegidaPC = registroDeDebAgua[MascotaPc-1];
+    debDeTierraMascotaElegidaPC = registroDeDebTierra[MascotaPc-1];
 
-    alert ("Pc: "+debDeAguaMascotaElegidaPc +"  "+debDeFuegoMascotaElegidaPC+"  "+ debDeTierraMascotaElegidaPC)
-    console.log ("Pc 2: "+ registroDeDebFuego[MascotaPc-1] + "  "+ registroDeDebAgua[MascotaPc-1] + "  " + registroDeDebTierra[MascotaPc-1])
+    //alert ("Pc: "+debDeAguaMascotaElegidaPC +"  "+debDeFuegoMascotaElegidaPC+"  "+ debDeTierraMascotaElegidaPC)
+    //console.log ("Pc 2: "+ registroDeDebFuego[MascotaPc-1] + "  "+ registroDeDebAgua[MascotaPc-1] + "  " + registroDeDebTierra[MascotaPc-1])
 };
 
 function validarBotonesAtaque (codigoMascota) {
@@ -328,59 +328,49 @@ function music () {
 
 // se podria eleiminar la variable ResultadoDeAtaques y colocarlo como parametro de crearMensajeResultado con el valor de cada condicional (ganar, perder o empatar).
 
-//COMBATE-------------------------
-//function combateDeElementos () {
-//   let spanVidaJugador = document.querySelector (`#span-vida-jugador`);
-//    let spanVidaPc = document.querySelector (`#span-vida-pc`);
-
-//    if (ataqueElementoDeLaPc == ataqueElementoJugador) {
-//        progresoDeAtaquesEmpate = `MISS 😮😮😮😮`;
-//        crearMensajeResultado(1);
-//    } else if ((ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) || (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) || //(ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`)) {
-//        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc}`;
-//        vidaPc = vidaPc - (ataqueDelJugadorALaPc - defElegidoPorPc); //ACA SE MODIFICA LA VIDA DEL PC
-//        if (vidaPc <= 0) {
-//            spanVidaPc.innerHTML = 0;
-//            crearMensajeResultado(2);
-//            revisarVidas ();
-            
-//        } else {
-//            spanVidaPc.innerHTML = vidaPc;
-//            crearMensajeResultado(2);
-//        }
-//    } else {
-//        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador}`;
-//        vidaJugador = vidaJugador - (ataqueDeLaPcAlJugador - defElegidoPorJugador); //ACA SE MODIFICA LA VIDA DEL JUGADOR
-//        if (vidaJugador <= 0) {
-//            spanVidaJugador.innerHTML = 0;
-//            crearMensajeResultado(3);
-//            revisarVidas ();
-            
-//        } else {
-//            spanVidaJugador.innerHTML = vidaJugador;
-//            crearMensajeResultado(3);
-//        }
-//    }
-//};
-
-
-
+//COMBATE------------------------- MODIFICAR CON FUNCIONES PARA ACORTAR LINEAS DE COD.
 
 function combateDeElementos () {
     let spanVidaJugador = document.querySelector (`#span-vida-jugador`);
     let spanVidaPc = document.querySelector (`#span-vida-pc`);
 
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
-        progresoDeAtaquesEmpate = `MISS 😮😮😮😮`;
+        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc}`;
+        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc;
+
+        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador}`;
+        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador;
+
+        if (vidaJugador <= 0) {
+            spanVidaJugador.innerHTML = 0;
+            crearMensajeResultado(3);
+            revisarVidas ();
+                
+        } else {
+            spanVidaJugador.innerHTML = vidaJugador;
+            crearMensajeResultado(3);
+        }
+
+        if (vidaPc <= 0) {
+            spanVidaPc.innerHTML = 0;
+            crearMensajeResultado(2);
+            revisarVidas ();
+                
+        } else {
+            spanVidaPc.innerHTML = vidaPc;
+            crearMensajeResultado(2);
+        }
+
+        progresoDeAtaquesEmpate = `Los elementos se igualaron!! 😯😮😲😯😳`;
         crearMensajeResultado(1);
     }
 
          //ACA SE MODIFICA LA VIDA DEL PC
 
     if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) {
-        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeFuegoMascotaElegidaPC}`;
-        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeFuegoMascotaElegidaPC;
-        alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeFuegoMascotaElegidaPC)
+        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeTierraMascotaElegidaPC}`;
+        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeTierraMascotaElegidaPC;
+        //alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeFuegoMascotaElegidaPC)
 
         if (vidaPc <= 0) {
             spanVidaPc.innerHTML = 0;
@@ -393,9 +383,9 @@ function combateDeElementos () {
         }
         
     } else if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) {
-        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeTierraMascotaElegidaPC}`;
-        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeTierraMascotaElegidaPC;
-        alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeTierraMascotaElegidaPC)
+        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeAguaMascotaElegidaPC}`;
+        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeAguaMascotaElegidaPC;
+        //alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeTierraMascotaElegidaPC)
         if (vidaPc <= 0) {
             spanVidaPc.innerHTML = 0;
             crearMensajeResultado(2);
@@ -407,9 +397,9 @@ function combateDeElementos () {
         }
 
     } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
-        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeAguaMascotaElegidaPC}`;
-        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeAguaMascotaElegidaPC;
-        alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeAguaMascotaElegidaPC)
+        progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelJugadorALaPc - defElegidoPorPc + debDeFuegoMascotaElegidaPC}`;
+        vidaPc = vidaPc - ataqueDelJugadorALaPc - defElegidoPorPc + debDeFuegoMascotaElegidaPC;
+        //alert (ataqueDelJugadorALaPc + "  " + defElegidoPorPc + "  " + debDeAguaMascotaElegidaPC)
         if (vidaPc <= 0) {
             spanVidaPc.innerHTML = 0;
             crearMensajeResultado(2);
@@ -424,9 +414,9 @@ function combateDeElementos () {
         //ACA SE MODIFICA LA VIDA DEL JUGADOR
 
     if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Fuego 🔥`) {
-        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeFuegoMascotaElegidaJugador}`;
-        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeFuegoMascotaElegidaJugador;
-        alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeFuegoMascotaElegidaJugador)
+        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeTierraMascotaElegidaJugador}`;
+        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeTierraMascotaElegidaJugador;
+        //alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeFuegoMascotaElegidaJugador)
         if (vidaJugador <= 0) {
             spanVidaJugador.innerHTML = 0;
             crearMensajeResultado(3);
@@ -437,9 +427,9 @@ function combateDeElementos () {
             crearMensajeResultado(3);
         }
     } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Tierra ☘`) {
-        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeTierraMascotaElegidaJugador}`;
-        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeTierraMascotaElegidaJugador;
-        alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeTierraMascotaElegidaJugador)
+        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeAguaMascotaElegidaJugador}`;
+        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeAguaMascotaElegidaJugador;
+        //alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeTierraMascotaElegidaJugador)
         if (vidaJugador <= 0) {
             spanVidaJugador.innerHTML = 0;
             crearMensajeResultado(3);
@@ -450,9 +440,9 @@ function combateDeElementos () {
             crearMensajeResultado(3);
         }
     } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Agua 💧`) {
-        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeAguaMascotaElegidaJugador}`;
-        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeAguaMascotaElegidaJugador;
-        alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeAguaMascotaElegidaJugador)
+        progresoDeVidaJugador = `vida de tú dragón pierde ${ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeFuegoMascotaElegidaJugador}`;
+        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador - defElegidoPorJugador + debDeFuegoMascotaElegidaJugador;
+        //alert (ataqueDeLaPcAlJugador + "  " + defElegidoPorJugador + "  " + debDeAguaMascotaElegidaJugador)
         if (vidaJugador <= 0) {
             spanVidaJugador.innerHTML = 0;
             crearMensajeResultado(3);
@@ -621,12 +611,12 @@ class Mascotas{
     }   
 };
 
-mascotasEleccion.push(new Mascotas(`Dragón N°1`,`Agua`, 1010, 65,16,35,35,35));
-mascotasEleccion.push(new Mascotas(`Dragón N°2`,`Fuego`, 1020, 70,15,35,35,35));
-mascotasEleccion.push(new Mascotas(`Dragón N°3`,`Tierra`, 1030, 75,14,35,35,35));
-mascotasEleccion.push(new Mascotas(`Dragón N°4`,`Agua y Fuego`, 1040, 80,13,35,35,35));
-mascotasEleccion.push(new Mascotas(`Dragón N°5`,`Agua y Tierra`, 1050, 85,12,35,35,35));
-mascotasEleccion.push(new Mascotas(`Dragón N°6`,`Tierra y Fuego`, 1060, 90,11,35,35,35));
+mascotasEleccion.push(new Mascotas(`Dragón N°1`,`Agua`, 1010, 65,16,35,`No tiene`,``));
+mascotasEleccion.push(new Mascotas(`Dragón N°2`,`Fuego`, 1020, 70,15,`No tiene`,``,35));
+mascotasEleccion.push(new Mascotas(`Dragón N°3`,`Tierra`, 1030, 75,14,``,35,`No tiene`));
+mascotasEleccion.push(new Mascotas(`Dragón N°4`,`Agua y Fuego`, 1040, 80,13,35,`No tiene`,35));
+mascotasEleccion.push(new Mascotas(`Dragón N°5`,`Agua y Tierra`, 1050, 85,12,35,35,`No tiene`));
+mascotasEleccion.push(new Mascotas(`Dragón N°6`,`Tierra y Fuego`, 1060, 90,11,`No tiene`,35,35));
 
 mascotasEleccion.forEach ((mascota) => {
     let ataqueMaximo = parseInt (mascota.atk * 1.65);
