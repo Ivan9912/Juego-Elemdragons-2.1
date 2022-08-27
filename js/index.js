@@ -1,37 +1,31 @@
 //import {mascotasEleccion} from './dragons.js';
+
+
+
+
+
+
+
+botonFuego.addEventListener (`click`, elementoFuego);
+botonTierra.addEventListener (`click`, elementoTierra);
+botonAgua.addEventListener (`click`, elementoAgua);
+botonParaMascotaPlayer.addEventListener (`click`, seleccionarMascotaPlayer);  
+botonParaMascotaPlayerrandom.addEventListener (`click`, seleccionarMascotaPlayerrandom); 
+botonReinicio.addEventListener (`click`, botonDeReinicio);
+
+
 function init () {
-
-    let botonFuego = document.querySelector (`#boton-fuego`);
-    let botonTierra = document.querySelector(`#boton-tierra`);
-    let botonAgua = document.querySelector(`#boton-agua`);
-    botonFuego.addEventListener (`click`, elementoFuego);
-    botonTierra.addEventListener (`click`, elementoTierra);
-    botonAgua.addEventListener (`click`, elementoAgua);
-
-    let botonParaMascotaPlayer = document.querySelector (`#seleccionar-mascota-player`);
-    botonParaMascotaPlayer.addEventListener (`click`, seleccionarMascotaPlayer);  
-
-    let botonParaMascotaPlayerrandom = document.querySelector (`#seleccionar-mascota-player-random`);
-    botonParaMascotaPlayerrandom.addEventListener (`click`, seleccionarMascotaPlayerrandom); 
-
-    let botonReinicio = document.querySelector (`#boton-reiniciar`);
-    botonReinicio.addEventListener (`click`, botonDeReinicio);
-
-    relogActualizable ();
-
-    let escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
     for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
         escuchaOpcionesRadio[i].onclick = function() {
-            let spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`);
-            
-            if (seleccion == 0) {
+        let spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`); 
+        if (seleccion == 0) {
                 spanInputsSelect.innerHTML = `
-            <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() + seleccionarMascotaPc() class = "section-btn-select2">
-                Select
-            </button> 
-            <button type = "button" id = "seleccionar-mascota-player-random" disabled class = "section-btn-random2">
-                Random
-            </button>`;
+                <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() + seleccionarMascotaPc() class = "section-btn-select2">
+                    Select
+                </button> 
+                <button type = "button" id = "seleccionar-mascota-player-random" disabled class = "section-btn-random2">
+                    Random
+                </button>`;
             }
             //let chequeo = escuchaOpcionesRadio[i].checked;
             if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[0]) {
@@ -51,17 +45,9 @@ function init () {
             seleccion++; 
         }
     }
-};
+}
 
 function seleccionarMascotaPlayer () {
-    let input1 = document.querySelector (`#mascota-1`);
-    let input2 = document.querySelector (`#mascota-2`);
-    let input3 = document.querySelector (`#mascota-3`);
-    let input4 = document.querySelector (`#mascota-4`);
-    let input5 = document.querySelector (`#mascota-5`);
-    let input6 = document.querySelector (`#mascota-6`);
-    let spanVidaPlayer = document.querySelector (`#span-vida-player`);
-    let hoverBotonSelect = document.querySelector (`#seleccionar-mascota-player`);
     hoverBotonSelect.addEventListener (`mouseover`, () => hoverBotonSelect.setAttribute (`style`, `background-color: black; color: bisque;`));
     hoverBotonSelect.addEventListener (`mouseout`, () => hoverBotonSelect.setAttribute (`style`, `background-color: transparent; color: black;`));
 
@@ -78,19 +64,14 @@ function seleccionarMascotaPlayer () {
     } else if (input6.checked){
         registroDeElecciones (6);
     } 
-    
     seleccionarMascotaPc();
     spanVidaPlayer.innerHTML = vidaPlayer;
-    let sectionMain2 = document.querySelector (`#section-btn-seleccion-player`);
     sectionMain2.style.display=`none`;
 };
 
 function seleccionarMascotaPlayerrandom () {
     let randomMascotaPlayer = random (min, max);
-    let spanMenuMascotas = document.querySelector (`#btn-requisito-seleccion`);
     spanMenuMascotas.innerHTML = `<p class = "conteiner-random-mensaje">Seleccionaste el botón <b>"random"</b> por ende, no podrás volver a seleccionar sin <b>reiniciar</b> el juego.</p>`;
-    let spanVidaPlayer = document.getElementById (`span-vida-player`);
-        
     if (randomMascotaPlayer == 1) {
         registroDeElecciones (1);  
         
@@ -110,8 +91,6 @@ function seleccionarMascotaPlayerrandom () {
 };
 
 function seleccionarMascotaPc () {
-    
-    let spanVidaPc = document.querySelector (`#span-vida-pc`);
     let randomMascotaPc = random (min, max);
         
     if (randomMascotaPc == 1) {
@@ -131,7 +110,6 @@ function seleccionarMascotaPc () {
 };
 
 function registroDeElecciones (mascota) {
-    let spanMascotaPlayer = document.querySelector (`#nombre-mascota-player`);
     mascotaElegidaPorPlayer.unshift (mascotasEleccion[mascota-1].name);
     spanMascotaPlayer.innerHTML = mascotaElegidaPorPlayer[0];
     ataqueDelPlayerALaPc = registroDeAtaque[mascota-1];
@@ -148,7 +126,6 @@ function registroDeElecciones (mascota) {
 };
 
 function registroDeEleccionesPc (MascotaPc) {
-    let spanMascotarandomPc = document.querySelector (`#nombre-mascota-pc`);
     mascotaElegidaPorPc.unshift (mascotasEleccion[MascotaPc-1].name); 
     spanMascotarandomPc.innerHTML = mascotaElegidaPorPc[0];
     ataqueDeLaPcAlPlayer = registroDeAtaque[MascotaPc-1];
@@ -166,10 +143,7 @@ function registroDeEleccionesPc (MascotaPc) {
 };
 
 function validarBtnAtaque (codigoMascota) {
-    let botonFuego = document.querySelector (`#boton-fuego`);
-    let botonTierra = document.querySelector (`#boton-tierra`);
-    let botonAgua = document.querySelector (`#boton-agua`);
-
+    
     if (codigoMascota == 1) {
         botonFuego.style.display = `none`;
         botonTierra.style.display = `none`;
@@ -210,28 +184,23 @@ function validarBtnAtaque (codigoMascota) {
         escuchaBotonDeFuego = botonFuego;
         escuchaBotonTierra = botonTierra;
     }
-    let sectionAtaque = document.querySelector (`#section-ataque`);
     sectionAtaque.style.display=`flex`;
-    let sectionMain = document.querySelector(`#section-main`);
     sectionMain.style.display=`none`;
 };
 
 function elementoFuego () {
-    let spanElementosPlayer = document.querySelector (`#span-elementos-player`);
     ataqueElementoPlayer = `Fuego 🔥`;
     spanElementosPlayer.innerHTML = `Elemento de ${ataqueElementoPlayer}`;
     ataqueDeLaPc ();
 };
 
 function elementoAgua () {
-    let spanElementosPlayer = document.querySelector (`#span-elementos-player`);
     ataqueElementoPlayer = `Agua 💧`;
     spanElementosPlayer.innerHTML = `Elemento de ${ataqueElementoPlayer}`;
     ataqueDeLaPc ();    
 };
 
 function elementoTierra () {
-    let spanElementosPlayer = document.querySelector (`#span-elementos-player`);
     ataqueElementoPlayer = `Tierra ☘`;
     spanElementosPlayer.innerHTML = `Elemento de ${ataqueElementoPlayer}`;
     ataqueDeLaPc ();
@@ -239,7 +208,6 @@ function elementoTierra () {
 
 function ataqueDeLaPc () {
     let ataquerandom = random (min, (max-4));
-    let spanElementosDeLaPc = document.querySelector (`#span-elementos-enemigo`);
     ataqueDelPlayerALaPc = ataquerandomoo(ataqueElegidoPorPlayerMascota);
     ataqueDeLaPcAlPlayer = ataquerandomoo(ataqueElegidoPorPcMascota);
 
@@ -339,29 +307,22 @@ function combateDeElementos () {
 
     if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoPlayer == `Tierra ☘`) {//ACA SE MODIFICA LA VIDA DEL PC
         intervaloCombatePc (debDeTierraMascotaElegidaPC);
-
     } else if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoPlayer == `Agua 💧`) {
         intervaloCombatePc (debDeAguaMascotaElegidaPC);
-
     } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoPlayer == `Fuego 🔥`) {
         intervaloCombatePc (debDeFuegoMascotaElegidaPC);
-
     }
 
     if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoPlayer == `Fuego 🔥`) {//ACA SE MODIFICA LA VIDA DEL Player
         intervaloCombatePlayer (debDeTierraMascotaElegidaPlayer);
-
     } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoPlayer == `Tierra ☘`) {
         intervaloCombatePlayer (debDeAguaMascotaElegidaPlayer);
-
     } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoPlayer == `Agua 💧`) {
-        intervaloCombatePlayer (debDeFuegoMascotaElegidaPlayer);
-
     }
 };
 
 function intervaloCombatePc (debilidadElementalPc) {
-    let spanVidaPc = document.querySelector (`#span-vida-pc`);
+    
     progresoDeVidaPc = `vida del dragón de la Pc pierde ${ataqueDelPlayerALaPc - defElegidoPorPc + debilidadElementalPc}`;
     vidaPc = vidaPc - ataqueDelPlayerALaPc - defElegidoPorPc + debilidadElementalPc;
     //alert (ataqueDelPlayerALaPc + "  " + defElegidoPorPc + "  " + debilidadElementalPc)
@@ -369,7 +330,6 @@ function intervaloCombatePc (debilidadElementalPc) {
         spanVidaPc.innerHTML = 0;
         crearMensajeResultado(2);
         revisarVidas ();
-            
     } else {
         spanVidaPc.innerHTML = vidaPc;
         crearMensajeResultado(2);
@@ -377,15 +337,13 @@ function intervaloCombatePc (debilidadElementalPc) {
 }
 
 function intervaloCombatePlayer (debilidadElementalPlayer) {
-    let spanVidaPlayer = document.querySelector (`#span-vida-player`);
     progresoDeVidaPlayer = `vida de tú dragón pierde ${ataqueDeLaPcAlPlayer - defElegidoPorPlayer + debilidadElementalPlayer}`;
     vidaPlayer = vidaPlayer - ataqueDeLaPcAlPlayer - defElegidoPorPlayer + debilidadElementalPlayer;
     //alert (ataqueDeLaPcAlPlayer + "  " + defElegidoPorPlayer + "  " + debilidadElementalPlayer)
     if (vidaPlayer <= 0) {
         spanVidaPlayer.innerHTML = 0;
         crearMensajeResultado(3);
-        revisarVidas ();
-                
+        revisarVidas ();  
     } else {
         spanVidaPlayer.innerHTML = vidaPlayer;
         crearMensajeResultado(3);
@@ -407,23 +365,24 @@ function revisarVidas () {
         El dragón del Pc dejó en 0 la vida de tú dragón. 
         Vuelve a jugar...  😣😣😣😣😣`);
         vidaPlayer = 0;
+    } else if (vidaPc <= 0 && vidaPlayer <= 0) {
+        crearMensajeFinal (`Hubo un rotundo empate. 
+        
+        Ambos perdieron`);
     }
 };
 
 function crearMensajeResultado (mensajito) {
     
     if (mensajito == 1) {
-        let ataqueEmpate = document.getElementById (`mensajes`);
         let parrafo1 = document.createElement (`p`);
         parrafo1.innerHTML = progresoDeAtaquesEmpate;
         ataqueEmpate.appendChild(parrafo1);
     } else if (mensajito == 2) {
-        let ataquePlayer = document.getElementById (`ataque-player`);
         let parrafo2 = document.createElement (`p`);
         parrafo2.innerHTML = progresoDeVidaPc;
         ataquePlayer.appendChild(parrafo2);
     } else if (mensajito == 3) {
-        let ataquePc = document.getElementById (`ataque-pc`);
         let parrafo3 = document.createElement (`p`);
         parrafo3.innerHTML = progresoDeVidaPlayer;
         ataquePc.appendChild(parrafo3);
@@ -431,8 +390,6 @@ function crearMensajeResultado (mensajito) {
 };
 
 function crearMensajeFinal (resultadoFinal) {
-   
-    let divMensajeFinal = document.querySelector (`#mensaje-final`);
     let parrafo = document.createElement (`p`);
     parrafo.innerText = resultadoFinal;
     divMensajeFinal.appendChild(parrafo);  //aca se aplica lo interesante de las funciones junto con la funcion de revisarVidas...
@@ -440,20 +397,15 @@ function crearMensajeFinal (resultadoFinal) {
 };
 
 function desactivarBtn () {
-    let botonFuego = document.querySelector (`#boton-fuego`);
-    let botonTierra = document.querySelector (`#boton-tierra`);
-    let botonAgua = document.querySelector (`#boton-agua`);
     botonFuego.disabled = true;
     botonTierra.disabled = true;
     botonAgua.disabled = true;
-    let sectionReiniciar = document.querySelector (`#reiniciará`);
     sectionReiniciar.style.visibility = `visible`;
     sectionReiniciar.style.display = `flex`;
 };
 
 function relogActualizable () {
     const currentTime = () => {
-        const idTime = document.querySelector (`#fecha-de-hoy`);
         const date = new Date ();
         let hh = date.getHours();
         let mm = date.getMinutes();
@@ -464,13 +416,46 @@ function relogActualizable () {
         ss = ss < 10 ? `0${ss}` : ss;
 
         let time = `${hh}:${mm}:${ss}`
-
+        const idTime = document.querySelector (`#fecha-de-hoy`);
         idTime.innerText = (`Fecha de hoy: ${date.toDateString()} ${time} Hs.`);
     }
     currentTime ();
     setInterval(currentTime, 1000);
 };
 
+
+const botonFuego = document.querySelector (`#boton-fuego`);
+const botonTierra = document.querySelector(`#boton-tierra`);
+const botonAgua = document.querySelector(`#boton-agua`);
+const botonParaMascotaPlayer = document.querySelector (`#seleccionar-mascota-player`);
+const botonParaMascotaPlayerrandom = document.querySelector (`#seleccionar-mascota-player-random`);
+const botonReinicio = document.querySelector (`#boton-reiniciar`);
+const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
+const input1 = document.querySelector (`#mascota-1`);
+const input2 = document.querySelector (`#mascota-2`);
+const input3 = document.querySelector (`#mascota-3`);
+const input4 = document.querySelector (`#mascota-4`);
+const input5 = document.querySelector (`#mascota-5`);
+const input6 = document.querySelector (`#mascota-6`);
+const hoverBotonSelect = document.querySelector (`#seleccionar-mascota-player`);
+const sectionMain2 = document.querySelector (`#section-btn-seleccion-player`);
+const spanMenuMascotas = document.querySelector (`#btn-requisito-seleccion`);
+const spanVidaPlayer = document.getElementById (`span-vida-player`);
+const spanVidaPc = document.querySelector (`#span-vida-pc`);
+const spanMascotaPlayer = document.querySelector (`#nombre-mascota-player`);
+const spanMascotarandomPc = document.querySelector (`#nombre-mascota-pc`);
+const sectionAtaque = document.querySelector (`#section-ataque`);
+const sectionMain = document.querySelector(`#section-main`);
+const spanElementosPlayer = document.querySelector (`#span-elementos-player`);
+const spanElementosDeLaPc = document.querySelector (`#span-elementos-enemigo`);
+const ataqueEmpate = document.getElementById (`mensajes`);
+const ataquePlayer = document.getElementById (`ataque-player`);
+const ataquePc = document.getElementById (`ataque-pc`);
+const divMensajeFinal = document.querySelector (`#mensaje-final`);
+const sectionReiniciar = document.querySelector (`#reiniciará`);
+
+
+relogActualizable ();
 window.addEventListener (`load`, init);
 let progresoDeAtaquesEmpate = ``;
 let progresoDeVidaPlayer = ``;
@@ -527,7 +512,6 @@ let index = 0;
 let i = 0;
 let min = 1;
 let max = 6;
-
 
 //.join es metodo para unir arrays!!.
 //-----------------------parte de objetos mascotas------------------------
