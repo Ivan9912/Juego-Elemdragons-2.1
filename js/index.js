@@ -28,7 +28,14 @@ function init () {
             <img src="${dragon.image}" alt="${dragon.name}" title = "${dragon.name} ${dragon.element}">
         </label>`;
         spanContenedorDeDragones.innerHTML += optionsDragons;
-        
+
+        input1 = document.querySelector (`#mascota-1`);
+        input2 = document.querySelector (`#mascota-2`);
+        input3 = document.querySelector (`#mascota-3`);
+        input4 = document.querySelector (`#mascota-4`);
+        input5 = document.querySelector (`#mascota-5`);
+        input6 = document.querySelector (`#mascota-6`);
+
         const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
         if (max == escuchaOpcionesRadio.length) {
             for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
@@ -66,12 +73,6 @@ const spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`);
 function seleccionarMascotaPlayer () {
     hoverBotonSelect.addEventListener (`mouseover`, () => hoverBotonSelect.setAttribute (`style`, `background-color: black; color: bisque;`));
     hoverBotonSelect.addEventListener (`mouseout`, () => hoverBotonSelect.setAttribute (`style`, `background-color: transparent; color: black;`));
-    const input1 = document.querySelector (`#mascota-1`);
-    const input2 = document.querySelector (`#mascota-2`);
-    const input3 = document.querySelector (`#mascota-3`);
-    const input4 = document.querySelector (`#mascota-4`);
-    const input5 = document.querySelector (`#mascota-5`);
-    const input6 = document.querySelector (`#mascota-6`);
     if (input1.checked) {
         registroDeElecciones (1);
     } else if (input2.checked){
@@ -446,6 +447,13 @@ const ataquePlayer = document.getElementById (`ataque-player`);
 const ataquePc = document.getElementById (`ataque-pc`);
 const divMensajeFinal = document.querySelector (`#mensaje-final`);
 const sectionReiniciar = document.querySelector (`#reiniciará`);
+
+let input1;
+let input2;
+let input3;
+let input4;
+let input5;
+let input6;
 
 let optionsDragons;
 
