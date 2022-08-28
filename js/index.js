@@ -1,12 +1,31 @@
 //import {dragonsElection} from './dragons.js';
 
+
 function init () {
     
-    dragonsElection.forEach ((dragon2) => {
+    dragonsElection.forEach ((dragon) => {
+        let maxAttack = parseInt (dragon.atk * 1.65);
+        dragonsList.push (`
+        ${dragon.name} 
+        Su elemento es de ${dragon.element} 
+        Su vida es de ${dragon.health}
+        Su ataque es de: ${dragon.atk} - ${maxAttack}
+        Su defensa es de: ${dragon.def}
+        Su debilidad por Elemento de Fuego: ${dragon.debFire}
+        Su debilidad por Elemento de Agua: ${dragon.debWater}
+        Su debilidad por Elemento de Tierra: ${dragon.debEarth}`);
+    
+        registroDeAtaque.push (dragon.atk);
+        registroDeVida.push (dragon.health); 
+        registroDeDefensa.push (dragon.def);
+        registroDeDebFire.push (dragon.debFire);  
+        registroDeDebWater.push (dragon.debWater); 
+        registroDeDebEarth.push (dragon.debEarth);  
+
         max++;
-        optionsDragons = `<input type = "radio" style ="display: none" name = "mascota" id = "${dragon2.id}" />
-        <label for = "${dragon2.id}">
-            <img src="${dragon2.image}" alt="${dragon2.name}" title = "${dragon2.name} ${dragon2.element}">
+        optionsDragons = `<input type = "radio" style ="display: none" name = "mascota" id = "${dragon.id}" />
+        <label for = "${dragon.id}">
+            <img src="${dragon.image}" alt="${dragon.name}" title = "${dragon.name} ${dragon.element}">
         </label>`;
         spanContenedorDeDragones.innerHTML += optionsDragons;
         
@@ -14,7 +33,7 @@ function init () {
             const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
             for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
                 escuchaOpcionesRadio[i].onclick = function() {
-                    const spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`); 
+                     
                     if (seleccion == 0) {
                         spanInputsSelect.innerHTML = `
                         <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() class = "section-btn-select2">
@@ -44,6 +63,7 @@ function init () {
     });
 };
 
+const spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`);
 function seleccionarMascotaPlayer () {
     hoverBotonSelect.addEventListener (`mouseover`, () => hoverBotonSelect.setAttribute (`style`, `background-color: black; color: bisque;`));
     hoverBotonSelect.addEventListener (`mouseout`, () => hoverBotonSelect.setAttribute (`style`, `background-color: transparent; color: black;`));
@@ -194,6 +214,7 @@ function elementoTierra () {
 };
 
 function ataqueDeLaPc () {
+    noBotonTramp++;
     let ataquerandom = random (min, (max-4));
     ataqueDelPlayerALaPc = ataquerandomoo(ataqueElegidoPorPlayerMascota);
     ataqueDeLaPcAlPlayer = ataquerandomoo(ataqueElegidoPorPcMascota);
@@ -241,12 +262,16 @@ function ataquerandomoo (ataque) {
 
 //----------------------------
 function seleccionarMascotaPcTrampa () {
-    seleccionarMascotaPc();
-    alert (`
-    Este botón se desarrolló para probar las posibles variables de 
-    ataques. 
-    
-    Éste es tú valor que se cambiará:  ${mascotaElegidaPorPc[0]}`);
+    if (noBotonTramp == 0) {
+        seleccionarMascotaPc();
+        alert (`
+        Este botón se desarrolló para probar las posibles variables de 
+        ataques. 
+        
+        Éste es tú valor que se cambiará:  ${mascotaElegidaPorPc[0]}`);
+    } else {
+        alert (`Ya no puedes acceder al botón trampa. Prueba antes de que inicie el combate.`);
+    }
 };
 
 function trampa () {
@@ -319,14 +344,14 @@ function intervaloCombate (debilidadElementalPc, fortalezaElementalPlayer, debil
 };
 
 function revisarVidas (lPc , lPlayer) {
-    if (lPc == 0 && lPlayer != 0) {
+    if (lPc == 0 && lPlayer !== 0) {
         crearMensajeFinal (`GANASTE 
 
         Dejaste al dragón de la PC en 0 de vida. 
         Felicitaciones! Tú dragón es el vencedor. 
         🎉🎉🎈🥳🎉`);
         vidaPc = lPc;
-    } else if (lPlayer == 0 && lPc != 0) {
+    } else if (lPlayer == 0 && lPc !== 0) {
         crearMensajeFinal (`PERDISTE 
 
         El dragón del Pc dejó en 0 la vida de tú dragón. 
@@ -467,6 +492,7 @@ let seleccion = 0;
 let i = 0;
 let min = 1;
 let max = 0; //va a cambiar segun la cantidad de dragones haya iterado
+let noBotonTramp = 0;
 
 botonFuego.addEventListener (`click`, elementoFuego);
 botonTierra.addEventListener (`click`, elementoTierra);
@@ -503,24 +529,3 @@ dragonsElection.push(new Dragons(`Dragón N°3`, `https://i.imgur.com/vokks6I.pn
 dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
 dragonsElection.push(new Dragons(`Dragón N°5`, `https://i.imgur.com/5PH2mR0.png`,`Lodo (Tierra)`, 1050, 85,12,35,35-15,-15, `mascota-5`));
 dragonsElection.push(new Dragons(`Dragón N°6`, `https://i.imgur.com/nSXxdj8.png`,`Lava (Fuego)`, 1060, 90,11,-15,35,35-15, `mascota-6`));
-
-dragonsElection.forEach ((dragon) => {
-    let maxAttack = parseInt (dragon.atk * 1.65);
-    dragonsList.push (`
-    ${dragon.name} 
-    Su elemento es de ${dragon.element} 
-    Su vida es de ${dragon.health}
-    Su ataque es de: ${dragon.atk} - ${maxAttack}
-    Su defensa es de: ${dragon.def}
-    Su debilidad por Elemento de Fuego: ${dragon.debFire}
-    Su debilidad por Elemento de Agua: ${dragon.debWater}
-    Su debilidad por Elemento de Tierra: ${dragon.debEarth}`);
-
-    registroDeAtaque.push (dragon.atk);
-    registroDeVida.push (dragon.health); 
-    registroDeDefensa.push (dragon.def);
-    registroDeDebFire.push (dragon.debFire);  
-    registroDeDebWater.push (dragon.debWater); 
-    registroDeDebEarth.push (dragon.debEarth);  
-    }
-);
