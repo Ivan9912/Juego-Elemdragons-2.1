@@ -239,6 +239,9 @@ button {
     background-color: RGBA(0,0,0,0.10);
     width: 620px;
     border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .subtitulo {
@@ -393,7 +396,6 @@ footer {
 }
 
 /*---------------------------------------*/
-
 /*------------------------------------*/
 
 @media (max-width: 500px) {
