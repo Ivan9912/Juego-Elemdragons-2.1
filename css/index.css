@@ -42,8 +42,7 @@ h1 {
 }
 
 main img {
-    width: 100px;
-    height: 100px;
+    width: 180px;
     margin-top: 10px;
 }
 
@@ -416,7 +415,7 @@ footer {
     }
     .main img {
         width: 50px;
-        height: 50px;
+        
     }
     .tarjetas {
         flex-direction: row;
