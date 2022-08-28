@@ -29,12 +29,11 @@ function init () {
         </label>`;
         spanContenedorDeDragones.innerHTML += optionsDragons;
         
-        if (max == 6) {
-            const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
+        const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
+        if (max == escuchaOpcionesRadio.length) {
             for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
                 escuchaOpcionesRadio[i].onclick = function() {
-                     
-                    if (seleccion == 0) {
+                    if (quitaBtnSelectRandom == 0) {
                         spanInputsSelect.innerHTML = `
                         <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() class = "section-btn-select2">
                             Select
@@ -56,7 +55,7 @@ function init () {
                     } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[5]) {
                         alert (dragonsList[5]);
                     };
-                    seleccion++; 
+                    quitaBtnSelectRandom++; 
                 };
             };
         };
@@ -214,7 +213,7 @@ function elementoTierra () {
 };
 
 function ataqueDeLaPc () {
-    noBotonTramp++;
+    noBtnTramp++;
     let ataquerandom = random (min, (max-4));
     ataqueDelPlayerALaPc = ataquerandomoo(ataqueElegidoPorPlayerMascota);
     ataqueDeLaPcAlPlayer = ataquerandomoo(ataqueElegidoPorPcMascota);
@@ -260,9 +259,9 @@ function ataquerandomoo (ataque) {
     return aletoidad
 };
 
-//----------------------------
+//-------------------------------------------------------------------------------
 function seleccionarMascotaPcTrampa () {
-    if (noBotonTramp == 0) {
+    if (noBtnTramp == 0) {
         seleccionarMascotaPc();
         alert (`
         Este botón se desarrolló para probar las posibles variables de 
@@ -488,11 +487,11 @@ const registroDeVida = [];
 let vidaPlayer;
 let vidaPc;
 
-let seleccion = 0;
+let quitaBtnSelectRandom = 0;
 let i = 0;
 let min = 1;
 let max = 0; //va a cambiar segun la cantidad de dragones haya iterado
-let noBotonTramp = 0;
+let noBtnTramp = 0; //si se ataca con elementos se asignará un 1 a esta variable impidiendo que puedas cambiar el dragon de la Pc.
 
 botonFuego.addEventListener (`click`, elementoFuego);
 botonTierra.addEventListener (`click`, elementoTierra);
@@ -526,6 +525,6 @@ class Dragons{
 dragonsElection.push(new Dragons(`Dragón N°1`, `https://i.imgur.com/GDYqWIE.png`,`Agua`, 1010, 65,16,35,-15,`Indistinto`, `mascota-1`));
 dragonsElection.push(new Dragons(`Dragón N°2`, `https://i.imgur.com/2pcscRc.png`,`Fuego`, 1020, 70,15,-15,`Indistinto`,35, `mascota-2`));
 dragonsElection.push(new Dragons(`Dragón N°3`, `https://i.imgur.com/vokks6I.png`,`Tierra`, 1030, 75,14,`Indistinto`,35,-15, `mascota-3`));
-dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
+//dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
 dragonsElection.push(new Dragons(`Dragón N°5`, `https://i.imgur.com/5PH2mR0.png`,`Lodo (Tierra)`, 1050, 85,12,35,35-15,-15, `mascota-5`));
 dragonsElection.push(new Dragons(`Dragón N°6`, `https://i.imgur.com/nSXxdj8.png`,`Lava (Fuego)`, 1060, 90,11,-15,35,35-15, `mascota-6`));
