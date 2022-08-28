@@ -108,7 +108,7 @@ function seleccionarMascotaPlayerRandom () {
         };
     seleccionarMascotaPc();
     spanVidaPlayer.innerHTML = vidaPlayer;
-    seleccion++;
+    quitaBtnSelectRandom++;
 };
 
 function seleccionarMascotaPc () {
