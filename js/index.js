@@ -340,28 +340,36 @@ function intervaloCombate (debilidadElementalPc, fortalezaElementalPlayer, debil
         spanVidaPlayer.innerHTML = vidaPlayer;
         crearMensajeResultado(3);
     };
+    if (vidaPlayer <= 0 && vidaPc <= 0) {
+        spanVidaPlayer.innerHTML = 0;
+        spanVidaPc.innerHTML = 0;
+        revisarVidas (0, 0);// REVISAR PARA QUE HAYA EMPATE EN 0, 0 EN AMBAS VIDAS
+    };
 };
 
 function revisarVidas (lPc , lPlayer) {
-    if (lPc == 0 && lPlayer !== 0) {
+    if (lPc == 0 && lPlayer >= 0 ) {
         crearMensajeFinal (`GANASTE 
 
         Dejaste al dragón de la PC en 0 de vida. 
         Felicitaciones! Tú dragón es el vencedor. 
         🎉🎉🎈🥳🎉`);
         vidaPc = lPc;
-    } else if (lPlayer == 0 && lPc !== 0) {
+        alert ("gané ")
+    } else if (lPlayer == 0 && lPc >= 0 ) {
         crearMensajeFinal (`PERDISTE 
 
         El dragón del Pc dejó en 0 la vida de tú dragón. 
         Vuelve a jugar...  😣😣😣😣😣`);
         vidaPlayer = lPlayer;
+        alert ("perdi ")
     } else if (lPc == 0 && lPlayer == 0) {
         crearMensajeFinal (`Hubo un rotundo empate. 
         
         Ambos perdieron`);
         vidaPc = lPc;
         vidaPlayer = lPlayer;
+        alert ("empate ")
     };
 };
 
@@ -525,6 +533,6 @@ class Dragons{
 dragonsElection.push(new Dragons(`Dragón N°1`, `https://i.imgur.com/GDYqWIE.png`,`Agua`, 1010, 65,16,35,-15,`Indistinto`, `mascota-1`));
 dragonsElection.push(new Dragons(`Dragón N°2`, `https://i.imgur.com/2pcscRc.png`,`Fuego`, 1020, 70,15,-15,`Indistinto`,35, `mascota-2`));
 dragonsElection.push(new Dragons(`Dragón N°3`, `https://i.imgur.com/vokks6I.png`,`Tierra`, 1030, 75,14,`Indistinto`,35,-15, `mascota-3`));
-//dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
+dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
 dragonsElection.push(new Dragons(`Dragón N°5`, `https://i.imgur.com/5PH2mR0.png`,`Lodo (Tierra)`, 1050, 85,12,35,35-15,-15, `mascota-5`));
 dragonsElection.push(new Dragons(`Dragón N°6`, `https://i.imgur.com/nSXxdj8.png`,`Lava (Fuego)`, 1060, 90,11,-15,35,35-15, `mascota-6`));
