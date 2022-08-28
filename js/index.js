@@ -215,9 +215,9 @@ function elementoTierra () {
 
 function ataqueDeLaPc () {
     noBtnTramp++;
-    let ataquerandom = random (min, (max-4));
-    ataqueDelPlayerALaPc = ataquerandomoo(ataqueElegidoPorPlayerMascota);
-    ataqueDeLaPcAlPlayer = ataquerandomoo(ataqueElegidoPorPcMascota);
+    let ataquerandom = random (min, 2);
+    ataqueDelPlayerALaPc = ataqueRandomCritic(ataqueElegidoPorPlayerMascota);
+    ataqueDeLaPcAlPlayer = ataqueRandomCritic(ataqueElegidoPorPcMascota);
     if (eleccionPc == 1) {
         ataqueElementoDeLaPc = `Agua 💧`;
     } else if (eleccionPc == 2) {
@@ -255,7 +255,7 @@ function random (minimo, maximo) {
     return Math.floor (Math.random() * (maximo - minimo + 1) + minimo);
 };
 
-function ataquerandomoo (ataque) {
+function ataqueRandomCritic (ataque) {
     let aletoidad = random (ataque, (ataque * 1.65)); 
     return aletoidad
 };
@@ -455,7 +455,7 @@ let input4;
 let input5;
 let input6;
 
-let optionsDragons;
+let optionsDragons;// base de datos de dragons a renderizar en labels.
 
 let progresoDeAtaquesEmpate;
 let progresoDeVidaPlayer;
@@ -465,15 +465,14 @@ let escuchaBotonDeFuego;
 let escuchaBotonAgua;
 let escuchaBotonTierra;
 
-const dragonsList = [];
-const dragonsElection = [];
-const mascotaElegidaPorPlayer = [];
+const dragonsList = [];//objeto con la info de cada dragon creado. Es lo que se visualiza en los alerts.
+const dragonsElection = [];// Acá se iteran con push cada info relevante de los dragones con "New".
+const mascotaElegidaPorPlayer = [];//Acá se guarda el nombre del dragon elegido por el Jugador. Solo se iterará 1 objeto.
 
-const mascotaElegidaPorPc = [];
-let eleccionPc;
+const mascotaElegidaPorPc = [];//Al elegir aleatoriamente la pc. Itera aca su eleccion traido de dragonsList.
+let eleccionPc; //aca se itera un numero del 1 al 6 segun lo que la pc elija... luego se utiliza para elegir el tipo de ataque y los elementos de dicho dragon elegido.
 
-const mascotaAtaque = [];
-const registroDeAtaque = []; 
+const registroDeAtaque = []; //aca se iterarán todos los ataques de cada dragon para luego poder ser seleccionados. atk * 1.65 es lo mazimo que aumentará el ataque.
 let ataqueElegidoPorPlayerMascota; 
 let ataqueElegidoPorPcMascota;
 
