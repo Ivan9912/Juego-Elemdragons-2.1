@@ -1,39 +1,58 @@
 //import {dragonsElection} from './dragons.js';
 
 function init () {
-    for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
-        escuchaOpcionesRadio[i].onclick = function() {
-            const spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`); 
-            if (seleccion == 0) {
-                    spanInputsSelect.innerHTML = `
-                    <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() + seleccionarMascotaPc() class = "section-btn-select2">
-                        Select
-                    </button> 
-                    <button type = "button" id = "seleccionar-mascota-player-random" disabled class = "section-btn-random2">
-                        Random
-                    </button>`;
+    
+    dragonsElection.forEach ((dragon2) => {
+        max++;
+        optionsDragons = `<input type = "radio" style ="display: none" name = "mascota" id = "${dragon2.id}" />
+        <label for = "${dragon2.id}">
+            <img src="${dragon2.image}" alt="${dragon2.name}" title = "${dragon2.name} ${dragon2.element}">
+        </label>`;
+        spanContenedorDeDragones.innerHTML += optionsDragons;
+        
+        if (max == 6) {
+            const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
+            for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
+                escuchaOpcionesRadio[i].onclick = function() {
+                    const spanInputsSelect = document.querySelector (`#btn-requisito-seleccion`); 
+                    if (seleccion == 0) {
+                        spanInputsSelect.innerHTML = `
+                        <button type = "button" id = "seleccionar-mascota-player" onclick = seleccionarMascotaPlayer() class = "section-btn-select2">
+                            Select
+                        </button> 
+                        <button type = "button" id = "seleccionar-mascota-player-random" disabled class = "section-btn-random2">
+                            Random
+                        </button>`;
+                    };
+                    if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[0]) {
+                        alert (dragonsList[0]);
+                    } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[1]) {
+                        alert (dragonsList[1]);
+                    } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[2]) {
+                        alert (dragonsList[2]);
+                    } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[3]) {
+                        alert (dragonsList[3]);
+                    } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[4]) {
+                        alert (dragonsList[4]);
+                    } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[5]) {
+                        alert (dragonsList[5]);
+                    };
+                    seleccion++; 
                 };
-            if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[0]) {
-                alert (dragonsList[0]);
-            } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[1]) {
-                alert (dragonsList[1]);
-            } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[2]) {
-                alert (dragonsList[2]);
-            } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[3]) {
-                alert (dragonsList[3]);
-            } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[4]) {
-                alert (dragonsList[4]);
-            } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[5]) {
-                alert (dragonsList[5]);
             };
-            seleccion++; 
         };
-    };
+    });
 };
 
 function seleccionarMascotaPlayer () {
     hoverBotonSelect.addEventListener (`mouseover`, () => hoverBotonSelect.setAttribute (`style`, `background-color: black; color: bisque;`));
     hoverBotonSelect.addEventListener (`mouseout`, () => hoverBotonSelect.setAttribute (`style`, `background-color: transparent; color: black;`));
+    const input1 = document.querySelector (`#mascota-1`);
+    const input2 = document.querySelector (`#mascota-2`);
+    const input3 = document.querySelector (`#mascota-3`);
+    const input4 = document.querySelector (`#mascota-4`);
+    const input5 = document.querySelector (`#mascota-5`);
+    const input6 = document.querySelector (`#mascota-6`);
     if (input1.checked) {
         registroDeElecciones (1);
     } else if (input2.checked){
@@ -372,19 +391,13 @@ function relogActualizable () {
     setInterval(currentTime, 1000);
 };
 
-const escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
+const spanContenedorDeDragones = document.querySelector (`#conteinerDragons`);
 const botonFuego = document.querySelector (`#boton-fuego`);
 const botonTierra = document.querySelector(`#boton-tierra`);
 const botonAgua = document.querySelector(`#boton-agua`);
 const botonParaMascotaPlayer = document.querySelector (`#seleccionar-mascota-player`);
 const botonParaMascotaPlayerrandom = document.querySelector (`#seleccionar-mascota-player-random`);
 const botonReinicio = document.querySelector (`#boton-reiniciar`);
-const input1 = document.querySelector (`#mascota-1`);
-const input2 = document.querySelector (`#mascota-2`);
-const input3 = document.querySelector (`#mascota-3`);
-const input4 = document.querySelector (`#mascota-4`);
-const input5 = document.querySelector (`#mascota-5`);
-const input6 = document.querySelector (`#mascota-6`);
 const hoverBotonSelect = document.querySelector (`#seleccionar-mascota-player`);
 const sectionMain2 = document.querySelector (`#section-btn-seleccion-player`);
 const spanMenuMascotas = document.querySelector (`#btn-requisito-seleccion`);
@@ -402,8 +415,8 @@ const ataquePc = document.getElementById (`ataque-pc`);
 const divMensajeFinal = document.querySelector (`#mensaje-final`);
 const sectionReiniciar = document.querySelector (`#reiniciará`);
 
-relogActualizable ();
-window.addEventListener (`load`, init);
+let optionsDragons;
+
 let progresoDeAtaquesEmpate;
 let progresoDeVidaPlayer;
 let progresoDeVidaPc;
@@ -453,7 +466,7 @@ let vidaPc;
 let seleccion = 0;
 let i = 0;
 let min = 1;
-let max = 6;
+let max = 0; //va a cambiar segun la cantidad de dragones haya iterado
 
 botonFuego.addEventListener (`click`, elementoFuego);
 botonTierra.addEventListener (`click`, elementoTierra);
@@ -461,14 +474,18 @@ botonAgua.addEventListener (`click`, elementoAgua);
 botonParaMascotaPlayer.addEventListener (`click`, seleccionarMascotaPlayer);  
 botonParaMascotaPlayerrandom.addEventListener (`click`, seleccionarMascotaPlayerRandom); 
 botonReinicio.addEventListener (`click`, botonDeReinicio);
+botonParaMascotaPlayer.addEventListener (`click`, seleccionarMascotaPlayer);
 
+relogActualizable ();
+window.addEventListener (`load`, init);
 //------------------------------------------------------------------------
 //.join es metodo para unir arrays!!.
 //-----------------------parte de objetos mascotas------------------------
 
 class Dragons{
-    constructor(name, element, health, atk, def, debFire, debWater, debEarth) {
+    constructor(name, image, element, health, atk, def, debFire, debWater, debEarth, id) {
         this.name = name
+        this.image = image
         this.element = element
         this.health = health
         this.atk = atk
@@ -476,15 +493,16 @@ class Dragons{
         this.debFire = debFire
         this.debWater = debWater
         this.debEarth = debEarth
+        this.id = id
     }   
 };
 
-dragonsElection.push(new Dragons(`Dragón N°1`,`Agua`, 1010, 65,16,35,-15,`Indistinto`));
-dragonsElection.push(new Dragons(`Dragón N°2`,`Fuego`, 1020, 70,15,-15,`Indistinto`,35));
-dragonsElection.push(new Dragons(`Dragón N°3`,`Tierra`, 1030, 75,14,`Indistinto`,35,-15));
-dragonsElection.push(new Dragons(`Dragón N°4`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35));
-dragonsElection.push(new Dragons(`Dragón N°5`,`Lodo (Tierra)`, 1050, 85,12,35,35-15,-15));
-dragonsElection.push(new Dragons(`Dragón N°6`,`Lava (Fuego)`, 1060, 90,11,-15,35,35-15));
+dragonsElection.push(new Dragons(`Dragón N°1`, `https://i.imgur.com/GDYqWIE.png`,`Agua`, 1010, 65,16,35,-15,`Indistinto`, `mascota-1`));
+dragonsElection.push(new Dragons(`Dragón N°2`, `https://i.imgur.com/2pcscRc.png`,`Fuego`, 1020, 70,15,-15,`Indistinto`,35, `mascota-2`));
+dragonsElection.push(new Dragons(`Dragón N°3`, `https://i.imgur.com/vokks6I.png`,`Tierra`, 1030, 75,14,`Indistinto`,35,-15, `mascota-3`));
+dragonsElection.push(new Dragons(`Dragón N°4`, `https://i.imgur.com/lzIglf5.png`,`Viento (Agua)`, 1040, 80,13,35-15,-15,35, `mascota-4`));
+dragonsElection.push(new Dragons(`Dragón N°5`, `https://i.imgur.com/5PH2mR0.png`,`Lodo (Tierra)`, 1050, 85,12,35,35-15,-15, `mascota-5`));
+dragonsElection.push(new Dragons(`Dragón N°6`, `https://i.imgur.com/nSXxdj8.png`,`Lava (Fuego)`, 1060, 90,11,-15,35,35-15, `mascota-6`));
 
 dragonsElection.forEach ((dragon) => {
     let maxAttack = parseInt (dragon.atk * 1.65);
@@ -497,6 +515,7 @@ dragonsElection.forEach ((dragon) => {
     Su debilidad por Elemento de Fuego: ${dragon.debFire}
     Su debilidad por Elemento de Agua: ${dragon.debWater}
     Su debilidad por Elemento de Tierra: ${dragon.debEarth}`);
+
     registroDeAtaque.push (dragon.atk);
     registroDeVida.push (dragon.health); 
     registroDeDefensa.push (dragon.def);
