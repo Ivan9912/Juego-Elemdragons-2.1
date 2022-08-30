@@ -110,7 +110,7 @@ function seleccionarMascotaPlayerRandom () {
     seleccionarMascotaPc();
     spanVidaPlayer.innerHTML = vidaPlayer;
     quitaBtnSelectRandom++;
-};
+};// INTENTAR PENSAR ESTA LOGICA CON UN FOR O UN WHILE...
 
 function seleccionarMascotaPc () {
     let randomMascotaPc = random (min, max);
@@ -158,8 +158,8 @@ function registroDeEleccionesPc (DragonPc) {
 
 function validarBtnAtaque (codigoMascota) {
     if (codigoMascota == 1) {
-        botonFuego.style.display = `none`;
-        botonTierra.style.display = `none`;
+        botonFuego.style.display = `none`;// Quizas se podria crear cada variable en parametros en un una funcion.
+        botonTierra.style.display = `none`;// quizas convenga hacer un foreach y una plantilla output para que itere a cada uno agregando nodo de html sin appendchild.
         botonAgua.style.display = `flex`;
         escuchaBotonAgua = botonAgua;
     } else if (codigoMascota == 2) {
@@ -349,28 +349,25 @@ function intervaloCombate (debilidadElementalPc, fortalezaElementalPlayer, debil
 };
 
 function revisarVidas (lPc , lPlayer) {
-    if (lPc == 0 && lPlayer >= 0 ) {
+    if (lPc == 0 && lPlayer > 0 ) {
         crearMensajeFinal (`GANASTE 
 
         Dejaste al dragón de la PC en 0 de vida. 
         Felicitaciones! Tú dragón es el vencedor. 
         🎉🎉🎈🥳🎉`);
         vidaPc = lPc;
-        alert ("gané ")
-    } else if (lPlayer == 0 && lPc >= 0 ) {
+    } else if (lPlayer == 0 && lPc > 0 ) {
         crearMensajeFinal (`PERDISTE 
 
         El dragón del Pc dejó en 0 la vida de tú dragón. 
         Vuelve a jugar...  😣😣😣😣😣`);
         vidaPlayer = lPlayer;
-        alert ("perdi ")
     } else if (lPc == 0 && lPlayer == 0) {
         crearMensajeFinal (`Hubo un rotundo empate. 
         
         Ambos perdieron`);
         vidaPc = lPc;
         vidaPlayer = lPlayer;
-        alert ("empate ")
     };
 };
 

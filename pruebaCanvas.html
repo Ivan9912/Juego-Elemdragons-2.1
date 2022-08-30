@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba con canvas 2</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            background-color: cornflowerblue;
+            flex-direction: column;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        canvas {
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: aliceblue;
+            box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            margin-bottom: 50px;
+        }
+        button {
+            display: flex;
+            background-color: bisque;
+            color: black;
+            width: 150px;
+            justify-content: center;
+        }
+        .better {
+            transition: 500ms;
+            border-radius: 5px;
+        }
+        .better:hover {
+            transform: translateX(5px);
+            box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 36px 44px 15px -2px rgba(0, 0, 0, 0.75);
+            margin-bottom: 50px;
+            background-color: blue;
+            color: azure;
+            align-items: center;
+            width: 165px;
+            height: 25px;
+        }
+        .better:active {
+            background-color: aquamarine;
+            color:brown;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <section id="ver-mapa">
+        <canvas id="mapa" width="300" height="300"></canvas>
+        <h1>Hola Yanetxita... soy un canvas</h1>
+        <span id="nose"></span>
+        <button id="btn-move" class="better">Mover Dragones</button>
+    </section>
+    <script>
+        const verMapa = document.querySelector (`#ver-mapa`);
+        const map = document.querySelector (`#mapa`);
+        const nose = document.querySelector (`#nose`);
+        const DragonMove = document.querySelector (`#btn-move`);
+        const Body = document.querySelector(`#body`);
+
+        DragonMove.addEventListener (`click`, moveDg);
+
+        let lienzo = map.getContext(`2d`);
+        let imagenDragon1 = new Image();
+        imagenDragon1.src = "https://i.imgur.com/GDYqWIE.png";
+
+        imagenDragon1.setAttribute (`style`, `width: 100px; height: 100px;`);
+        
+        lienzo.drawImage(imagenDragon1,20,40,100,100);
+
+        nose.appendChild(imagenDragon1);
+
+        function moveDg () {
+        alert (`HOLAAA`)
+        Body.setAttribute (`style`, `background-color: black;`);
+        DragonMove.disabled = true;
+        };
+    </script>
+</body>
+
+</html>
