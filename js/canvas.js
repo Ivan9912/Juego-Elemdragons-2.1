@@ -7,11 +7,8 @@ if (anchoDelMapa > anchoMaximoDelMapa) {
     anchoDelMapa = anchoMaximoDelMapa - 20;
 }
 
-
-
 mapa.width = anchoDelMapa;
 mapa.height = anchoDelMapa * 0.45;
-
 
 class Dragons {
     constructor(name, image, element, health, atk, def, debFire, debWater, debEarth, id, x=map.width*0.02, y=map.height*0.50) {
@@ -58,7 +55,6 @@ for (let i = 0; i < dragonsList.length; i++) {
 
 const secioness = document.querySelector (`#section`);
 secioness.addEventListener (`click`, holita)
-
 
 const dragonsDescriptions = [];
 
@@ -127,8 +123,6 @@ let lienzo = map.getContext(`2d`);
 let index = 0;
 let intervalo;
 
-
-
 window.addEventListener (`keydown`, teclaPresionada);
 window.addEventListener (`keyup`, detenerMovimentoX);
 window.addEventListener (`keyup`, detenerMovimentoY);
@@ -137,7 +131,6 @@ const slt = document.querySelector (`#select`);
 const rdm = document.querySelector (`#random`);
 slt.addEventListener (`click`, seleccionar);
 rdm.addEventListener (`click`, SeleccionRandom);
-
 
 function random (minimo, maximo) {
     return Math.floor (Math.random() * (maximo - minimo + 1) + minimo);
@@ -160,7 +153,6 @@ function SeleccionRandom () {
         selectOfPlayer (6);
     }
     contador++
-    
 }
 
 let numberSelect = 0;
@@ -181,7 +173,6 @@ function cambiarColorFondoBody() {
     } else {
         body.setAttribute(`style`, `background-color: cornflowerblue;`);
     }
-    
     index++;
 }
 
@@ -217,7 +208,6 @@ function teclaPresionada (event) {
         if (event.key == `t`) {
             alert (`jojo trampa`)
             selectPc()
-            
         }
     }
 };
@@ -246,7 +236,6 @@ function seleccionar () {
         slt.disabled=true;
         slt.style.visibility=`hidden`;
     }
-
 };
 
 function selectOfPlayer (numberDragonSelect) {
@@ -287,8 +276,6 @@ function selectOfPc (numberDragonSelect) {
     dragonSeleccionadoPc[0].y = map.height*0.50;
     intervalo = setInterval(pintarCanvas, 30);
 };
-
-
 
 function pintarCanvas () {
     dragonSeleccionadoPlayer[0].x = dragonSeleccionadoPlayer[0].x + dragonSeleccionadoPlayer[0].velocidadX;
@@ -359,7 +346,6 @@ function moveRight() {
     dragonSeleccionadoPlayer[0].velocidadX = 5;
 };
 
-
 function detenerMovimentoY() {
     //  const gravedad = () => {
     //     if ((dragonSeleccionadoPlayer[0].y >= 70) && (dragonSeleccionadoPlayer[0].y < 181)) {
@@ -375,7 +361,6 @@ function detenerMovimentoY() {
 function detenerMovimentoX() {
     dragonSeleccionadoPlayer[0].velocidadX = 0;
 }
-
 
 function revisarColisiones(enemigo) {
     const arribaEnemigo = enemigo.y
@@ -396,6 +381,3 @@ function revisarColisiones(enemigo) {
     //clearInterval (intervalo);
     alert (`holaaa colisioné con ${dragonSeleccionadoPc[0].name}`)
 }
-
-
-
