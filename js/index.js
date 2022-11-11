@@ -520,7 +520,6 @@ callJson()
 async function callJson () {
     const response = await fetch('./js/Elemdragons.json');
     const data = await response.json();
-    console.log(data);
     data.forEach((info) => {
         dragonsElection.push(info);
     });
