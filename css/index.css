@@ -340,6 +340,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .conteiner-ataques2 {
